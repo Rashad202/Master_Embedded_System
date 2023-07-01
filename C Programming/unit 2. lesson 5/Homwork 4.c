@@ -1,34 +1,46 @@
 //---------------------------------Ex1---------------------------------
-
 #include <stdio.h>
-int prime(int y);
-int main()
-{
-    int a,b,x;
-    printf("Enter two numbers'interval' :");
-    scanf("%d%d",&a,&b);
-    printf("prime numbers between %d and %d are : ",a ,b);
-      for (++a;a<b;a++)
-       {
-          x= prime(a);
-          if(x == 0)
-          printf("%d ",a);
-       }
+#include <stdlib.h>
+#include <math.h>
+
+int isPrime(int num);
+
+int main() {
+    int num1, num2;
+    
+    printf("Enter the first number: ");
+    scanf("%d", &num1);
+    
+    printf("Enter the second number: ");
+    scanf("%d", &num2);
+    
+    printf("Prime numbers between %d and %d are: ", num1, num2);
+    
+    for (int i = num1; i <= num2; i++) {
+        if (isPrime(i))
+            printf("%d ", i);
+    }
+    
+    
     return 0;
 }
-int prime(int x )
-{
-  int v=0;
-    for(int y=2;y<=9;y++)
-    {
-        if(x%y == 0)
-          {
-            v=1;
-            break;
-          }
+
+int isPrime(int num) {
+    if (num <0 )
+        return 0;
+    else if(num ==1)
+        return 1;
+        
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0)
+            return 0;
     }
-    return v;
+    
+    return 1;
 }
+
+
+
  
 //---------------------------------Ex2---------------------------------
 #include <stdio.h>
