@@ -2,7 +2,7 @@
 //By :Rashad
 
 #include "stdint.h"
-#define _stack_top 0x20001000 
+extern unsigned long _stack_top  ;
 extern int main (void);
 void  Reset_Handler (void);
 void Default_Handler()
@@ -19,7 +19,7 @@ void Usage_Fault_Handler(void)		__attribute__ ((weak, alias("Default_Handler")))
 
 uint32_t vectors[] __attribute__ ((section(".vectors"))) = 
 {
-	_stack_top,
+	(uint32_t)  &_stack_top,
 	(uint32_t)	&Reset_Handler,
 	(uint32_t)	&NMI_Handler,
 	(uint32_t)	&H_Fault_Handler,
