@@ -1,0 +1,1 @@
+export PATH=/c/yagarto-20121222/bin:$PATH 
